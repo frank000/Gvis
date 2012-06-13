@@ -11,8 +11,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
        Zend_Db_Table::setDefaultAdapter($db);
        Zend_Registry::set('db', $db);
 
-    }
-
+    }    
 
 
 
