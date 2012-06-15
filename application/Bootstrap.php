@@ -12,6 +12,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
        Zend_Registry::set('db', $db);
 
     }    
+    protected function _initPlugins(){
+        $ctrl = Zend_Controller_Front::getInstance();
+        $ctrl->registerPlugin(new Application_Plugin_CheckLogin());
+    }
 
 
 
