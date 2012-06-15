@@ -15,6 +15,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     protected function _initPlugins(){
         $ctrl = Zend_Controller_Front::getInstance();
         $ctrl->registerPlugin(new Application_Plugin_CheckLogin());
+        $ctrl->registerPlugin(new Application_Plugin_CheckBrowser());
     }
     
     protected function _initTranlate(){
