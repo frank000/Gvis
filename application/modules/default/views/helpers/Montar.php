@@ -27,7 +27,7 @@ class Zend_View_Helper_Montar extends Zend_View_Helper_Abstract{
                  $menu .= "<ul>";
                  foreach ($item['child'] as $lbel => $value) {
  
-                        $menu .= "<li   ><a href='".$this->view->baseUrl().$value['uri']."'>  ".$lbel."</a></li>";
+                        $menu .= "<li class='children_menu' ><a href='".$this->view->baseUrl().$value['uri']."'>  ".$lbel."</a></li>";
                  }
                   $menu .= "</ul>";
              }
