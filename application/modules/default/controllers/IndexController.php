@@ -5,7 +5,17 @@ class Default_IndexController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
+        $arMenu = array(
+            'Início'=>array('uri'=>'/'),
+            'Vistorias'=>array('uri'=>'/vistorias',
+                'child'=>array(
+                    'Cadastrar'=>array('uri'=>'/vistorias/cadastrar/'),
+                    'Consultar'=>array('uri'=>'/vistorias/consultar/'),
+                    'Criar campos'=>array('uri'=>'/campos/criar/'),
+                    'Consultar campos'=>array('uri'=>'/campos/consultar/'),
+                    'Montar checklist'=>array('uri'=>'/checklist/montar')
+                )));
+        $this->view->menu = $arMenu;
     }
 
     public function indexAction()
