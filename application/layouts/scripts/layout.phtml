@@ -65,7 +65,9 @@
                  ))  
                 );?>
         <?php echo $this->montar($arMenu);?>
-        <div id='filhos'></div>
+        <div id='filhos'>
+            <a href="<?php echo $this->baseUrl(); ?>/authentication/logout">Sair</a>
+        </div>
 
         <h2>Layout</h2>
         <?php echo $this->layout()->content; ?>

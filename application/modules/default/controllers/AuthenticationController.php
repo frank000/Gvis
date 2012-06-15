@@ -37,9 +37,9 @@ class Default_AuthenticationController extends Zend_Controller_Action
                    $auth->getStorage()->write($authAdpter->getResultRowObject());
                    $this->_redirect('/');
                    
-                  echo 'Meu parabens';
+                  
                }else{
-                   echo "não é usuário";
+                  
                }
                
               
@@ -59,7 +59,12 @@ class Default_AuthenticationController extends Zend_Controller_Action
        
        
     }
-    
+    public function logoutAction()
+    {  
+       $auth = Zend_Auth::getInstance();
+       $auth->clearIdentity();
+        $this->_redirect('/');
+    }
     
 
 
