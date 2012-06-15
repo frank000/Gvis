@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <?php  $this->headScript()->prependFile($this->baseUrl().'/js/jquery-1.7.2.min.js', 'text/javascript');?>
+      <?php echo $this->headScript()->appendFile($this->baseUrl().'/js/jquery-ui-1.8.21.custom.min.js', 'text/javascript');?>
+      <?php //$this->headLink()->prependStylesheet($this->baseUrl().'/css/bootstrap.css');?>
+      <?php// $this->headLink()->appendStylesheet($this->baseUrl().'/css/bootstrap-responsive.css');?>
+      <?php// echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/docs.css');?>
+      
+        <script type="text/javascript" src="multimenu.js"></script>
+<link rel="stylesheet" type="text/css" href="multimenu.css" />
+
+<style>
+    body{
+        font-family: verdana
+    }
+    a:hover{
+        text-decoration: underline
+    }
+    a:visited,a:link,a:active{
+        color: black;
+        text-decoration: none
+    }
+    #cssdropdown{
+        display: inline 
+    }
+    li.headlink ul { display: none; }
+       li.headlink:hover ul { display: block; }
+       .children_menu{
+           display: block
+       }
+</style>
+<script>
+
+	$(document).ready(function(){
+		$('li.headlink').hover(
+			function() { $('ul', this).css('display', 'block'); },
+			function() { $('ul', this).css('display', 'none'); });
+	});
+	
+
+</script>    
+    </head>
+    <body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+        <?php    $arMenu = array(
+            'Início'=>array('uri'=>'/'),
+            'Vistorias'=>array('uri'=>'#',
+                'child'=>array(
+                    'Cadastrar'=>array('uri'=>'/vistorias/cadastrar/'),
+                    'Consultar/Editar'=>array('uri'=>'/vistorias/consultar/'),
+                    'Criar campos'=>array('uri'=>'/campos/criar/'),
+                    'Consultar campos'=>array('uri'=>'/campos/consultar/'),
+                    'Montar checklist'=>array('uri'=>'/checklist/montar'),
+                )),
+             'Clientes'=>array('uri'=>'#',
+                 'child'=>array(
+                     'Cadastrar'=>array('uri'=>'/clientes/cadastrar/'),
+                     'Consultar/Editar'=>array('uri'=>'/clientes/consultar')
+                 )),
+             'Usuários'=>array('uri'=>'#',
+                 'child'=>array(
+                     'Cadastrar'=>array('uri'=>'/usuarios/cadastrar/'),
+                     'Consultar/Editar'=>array('uri'=>'/usuarios/consultar')
+                 ))  
+                );?>
+        <?php// echo $this->montar($arMenu);?>
+        <div id='filhos'></div>
+
+        <h2>Layout NOVO</h2>
+        <?php echo $this->layout()->content; ?>
+
+    </body>
+</html>

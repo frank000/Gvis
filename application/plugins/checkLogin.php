@@ -13,8 +13,12 @@
 class Application_Plugin_CheckLogin extends Zend_Controller_Plugin_Abstract{
    
     public function preDispatch(Zend_Controller_Request_Abstract $request) {
-        //echo "ok";
         
+        $auth = Zend_Auth::getInstance();
+        if(! $auth->hasIdentity()){
+            $request->setControllerName('authentication');
+            $this->setRequest($request);
+        }
         
         
         parent::preDispatch($request);
