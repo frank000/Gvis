@@ -21,7 +21,7 @@ class Application_Plugin_CheckLogin extends Zend_Controller_Plugin_Abstract{
         }
         
         
-        parent::preDispatch($request);
+       // parent::preDispatch($request);
     }
 }
 

@@ -10,7 +10,14 @@ class Default_AuthenticationController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+       
+       
+       $formLogin = new Default_Form_Login();
+      
+       
+       $this->view->form1 = $formLogin;
+       
+       
     }
 
 
