@@ -18,15 +18,12 @@
             
 	    public function __construct() {
          
-	        $config = new Zend_Config_Ini(APPLICATION_PATH . '/configs/acl.ini');
-                //Zend_Debug::dump($config, 'Config');
-                // $config->
-                //  $acl = $config->roles->toArray();
+                $config = new Zend_Config_Ini(APPLICATION_PATH . '/configs/acl.ini');
                 $roles = $config->roles->toArray();
                 $resources = $config->resources->toArray();
-             //   Zend_Debug::dump($resources, 'roles');
-	        $this->_addRoles($roles);
-	       $this->_addResources($resources);
+
+                $this->_addRoles($roles);
+                $this->_addResources($resources);
 	    }
 	                 
 	    public function _addRoles($roles) {
@@ -76,7 +73,10 @@
             
             public static function getInstance() {
                 if($this->acl instanceof Application_Model_MyAcl) {
-                    return $this->acl;
+                    if(is_object($this->acl)) {
+                      return $this->acl;  
+                    }
+                    
                 } else {
                     $this->acl =  new Application_Model_MyAcl();
                     return $this->acl ;

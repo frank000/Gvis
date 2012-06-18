@@ -13,7 +13,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
     }    
     protected function _initPlugins(){
+      // $acl = new Application_Model_MyAcl();
+       //Zend_Registry::set('my_acl',$acl);
        $ctrl = Zend_Controller_Front::getInstance();
+       //$ctrl->registerPlugin(new Application_Plugin_CheckLogin(array('acl'=>$acl)));
        $ctrl->registerPlugin(new Application_Plugin_CheckLogin());
        $ctrl->registerPlugin(new Application_Plugin_CheckBrowser());
     }

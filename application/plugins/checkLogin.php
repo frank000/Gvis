@@ -16,9 +16,10 @@ class Application_Plugin_CheckLogin extends Zend_Controller_Plugin_Abstract{
 	    protected $_acl;
 	    protected $_controllerName;
 	 
-	    public function __construct(Zend_View_Interface $view = null ) {
+	    public function __construct(Zend_View_Interface $view = null) {
 	        $this->_auth = Zend_Auth::getInstance();
-	        $this->_acl = new Application_Model_MyAcl();
+	        $this->_acl =  new Application_Model_MyAcl();
+                Zend_Registry::set('my_acl', $this->_acl );
 	    }
 	 
 	    public function init() {
@@ -40,7 +41,7 @@ class Application_Plugin_CheckLogin extends Zend_Controller_Plugin_Abstract{
 
         }
           //  $request = $this->_action->getRequest();
-                $role = ( is_null($role))? 'user':$role ;
+                $role = ( is_null($role))? 'guest':$role ;
                 $controller = $request->getControllerName();
 	        $action = $request->getActionName();
 	        $module = $request->getModuleName();
@@ -48,19 +49,19 @@ class Application_Plugin_CheckLogin extends Zend_Controller_Plugin_Abstract{
 	                         
 	        $resource = $controller;
 	        $privilege = $action;
-	                         
+               
 	        if (!$this->_acl->has($resource)) {
 	            $resource = null;
 	        }
-	     echo $role. " - " .$resource . " - ".      $privilege;
-                $rs =  $this->_acl->isAllowed($role, $resource, $privilege);
-                Zend_Debug::dump($rs);
-//	        if (!$this->_acl->isAllowed($role, $resource, $privilege)) {
-//	            $request->setModuleName('default');
-//                     $request->setControllerName('authentication');
-//	            $request->setActionName('index');
-//	            $request->setDispatched(false);
-	     // }// else { 
+//	     echo $role. " - " .$resource . " - ".      $privilege;
+//                $rs =  $this->_acl->isAllowed($role, $resource, $privilege);
+//                Zend_Debug::dump($rs);
+	        if (!$this->_acl->isAllowed($role, $resource, $privilege)) {
+	            $request->setModuleName('default');
+                     $request->setControllerName('authentication');
+	            $request->setActionName('index');
+	            $request->setDispatched(false);
+	      }// else { 
        parent::preDispatch($request);
     }
 }
