@@ -14,7 +14,15 @@ class Zend_View_Helper_Montar extends Zend_View_Helper_Abstract{
     
     private $_acl;
     private $_auth;
-   
+   /**
+    *
+    *  Monta o menu princial
+    * 
+    * @param array $itensMenu Array multi-dimensional com os itens pais e filhos 
+    *               do menu
+    * 
+    * @return String 
+    */
     public function montar(array $itensMenu = null){
        $acl = Zend_Registry::get('my_acl'); 
        $this->_acl =  $acl;
@@ -52,6 +60,14 @@ class Zend_View_Helper_Montar extends Zend_View_Helper_Abstract{
         echo  $menu;
     }
     
+     /**
+     *
+     * Autoriza o montagem dos itens Pais do menu principal
+     * 
+     * @param array $uri URI do item-pai no seguinto formato ex.: "/#controller"
+     * 
+     * @return boolean true caso autorizado, e falso caso contrário
+     */
     public function autorizaUriPelaAclAltoNível($uri = null)
     {
 
@@ -82,6 +98,15 @@ class Zend_View_Helper_Montar extends Zend_View_Helper_Abstract{
             
     
     }
+    
+    /**
+     *
+     * Autoriza o montagem dos subitens do menu principal
+     * 
+     * @param array $uri URI do item ex.: "/controller/action"
+     * 
+     * @return boolean true caso autorizado, e falso caso contrário
+     */
     private function autorizaUriPelaAcl($uri)
     {
 
