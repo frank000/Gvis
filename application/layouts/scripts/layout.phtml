@@ -3,12 +3,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <?php  $this->headScript()->prependFile($this->baseUrl().'/js/jquery-1.7.2.min.js', 'text/javascript');?>
       <?php echo $this->headScript()->appendFile($this->baseUrl().'/js/jquery-ui-1.8.21.custom.min.js', 'text/javascript');?>
+        <link type="text/css" href="<?php echo $this->baseUrl().'/css/ui-lightness/jquery-ui-1.8.21.custom.css'?>" rel="stylesheet" />
+
       <?php //$this->headLink()->prependStylesheet($this->baseUrl().'/css/bootstrap.css');?>
       <?php// $this->headLink()->appendStylesheet($this->baseUrl().'/css/bootstrap-responsive.css');?>
       <?php// echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/docs.css');?>
       
-        <script type="text/javascript" src="multimenu.js"></script>
-<link rel="stylesheet" type="text/css" href="multimenu.css" />
+
 
 <style>
     body{
@@ -36,6 +37,8 @@
 		$('li.headlink').hover(
 			function() { $('ul', this).css('display', 'block'); },
 			function() { $('ul', this).css('display', 'none'); });
+                $( "#tabs" ).tabs();        
+                        
 	});
 	
 

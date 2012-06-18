@@ -1,0 +1,39 @@
+<br /><br />
+<!--<script>
+    $(function() {
+		$( "#tabs" ).tabs();
+	});
+</script>-->
+<div id="view-content">
+	<div id="tabs">
+	<ul>
+		<li><a href="#tabs-1">Detalhes do cliente</a></li>
+		<li><a href="#tabs-2">Itens do cliente </a></li>
+		
+	</ul>
+	<div id="tabs-1">
+		<p> Aqui vai os dados do cliente. </p>
+	</div>
+	<div id="tabs-2">
+            <p> Aqui vai os dados de itens do cliente. </p>
+			<?php
+                            $this->Grid(
+                                    $this->oDados ,
+                                    array(
+                                        'id',
+                                        'nome',
+                                        'email',
+                                        'celular',
+                                        'cidade'
+                                    ),
+                                    array(
+                                        'id' => 'lista',
+                                        'class' => 'tabela',
+                                        'cellspacing' => '1'
+                                    )
+                                );
+                            ?>
+	</div>
+
+</div>
+</div>
