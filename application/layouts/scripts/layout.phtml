@@ -45,7 +45,7 @@
 
         <?php    $arMenu = array(
             'Início'=>array('uri'=>'/'),
-            'Vistorias'=>array('uri'=>'#',
+            'Vistorias'=>array('uri'=>'#vistorias',
                 'child'=>array(
                     'Cadastrar'=>array('uri'=>'/vistorias/cadastrar/'),
                     'Consultar/Editar'=>array('uri'=>'/vistorias/consultar/'),
@@ -53,18 +53,18 @@
                     'Consultar campos'=>array('uri'=>'/campos/consultar/'),
                     'Montar checklist'=>array('uri'=>'/checklist/montar'),
                 )),
-             'Clientes'=>array('uri'=>'#',
+             'Clientes'=>array('uri'=>'#clientes',
                  'child'=>array(
                      'Cadastrar'=>array('uri'=>'/clientes/cadastrar/'),
                      'Consultar/Editar'=>array('uri'=>'/clientes/consultar')
                  )),
-             'Usuários'=>array('uri'=>'#',
+             'Usuários'=>array('uri'=>'#usuarios',
                  'child'=>array(
                      'Cadastrar'=>array('uri'=>'/usuarios/cadastrar/'),
                      'Consultar/Editar'=>array('uri'=>'/usuarios/consultar')
                  ))  
                 );?>
-        <?php echo $this->montar($arMenu);?>
+        <?php  echo $this->montar($arMenu);?>
         <div id='filhos'>
             <a href="<?php echo $this->baseUrl(); ?>/authentication/logout">Sair</a>
         </div>

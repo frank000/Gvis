@@ -34,9 +34,11 @@ class Default_AuthenticationController extends Zend_Controller_Action
                $result = $auth->authenticate($authAdpter);
                if($result->isValid())
                {
+                  // $acl = new Application_Model_MyAcl();
                    $auth->getStorage()->write($authAdpter->getResultRowObject());
                    $this->_redirect('/');
-                   
+
+                  // Zend_Debug::dump($acl, 'Acl : ');
                   
                }else{
                   

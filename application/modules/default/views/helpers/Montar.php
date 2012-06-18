@@ -16,25 +16,32 @@ class Zend_View_Helper_Montar extends Zend_View_Helper_Abstract{
     private $_auth;
     
     public function montar(array $itensMenu = null){
-        $this->_acl = new Zend_Acl();
-        $this->_auth = Zend_Auth::getInstance();
+  
+       $this->_auth = Zend_Auth::getInstance();
     
         $menu = "<div>Menu<br/>";
          $menu .= "<ul id='cssdropdown'>";
         foreach ($itensMenu as $label => $item) {
            
-          
-             if($label != 'child'){
+           //$this->autorizaUriPelaAcl($item['uri']);
+            if($this->autorizaUriPelaAclAltoNível($item['uri'])) {
+                    if($label != 'child'){
                   $menu .= "<li class='headlink'><a href='".$this->view->baseUrl().$item['uri']."'>".$label."</a>";
              }
              if(isset($item['child'])){
                  $menu .= "<ul>";
                  foreach ($item['child'] as $lbel => $value) {
- 
-                        $menu .= "<li class='children_menu' ><a href='".$this->view->baseUrl().$value['uri']."'>  ".$lbel."</a></li>";
+                       // Zend_Debug::dump($value['uri']);
+                    
+               //      if($this->autorizaUriPelaAcl($value['uri']) == true) {
+                         $menu .= "<li class='children_menu' ><a href='".$this->view->baseUrl().$value['uri']."'>  ".$lbel."</a></li>";
+                  //   } 
+                       
                  }
                   $menu .= "</ul>";
-             }
+             } 
+            }// fim da verificação de alto nivel
+       
             $menu.= "</li>";//final class headlink
                  
              
@@ -44,17 +51,57 @@ class Zend_View_Helper_Montar extends Zend_View_Helper_Abstract{
         echo  $menu;
     }
     
-    protected function autorizaUriPelaAcl($uri)
+    public function autorizaUriPelaAclAltoNível($uri = null)
     {
-        
+         //  return true;
+     //  $acl =  Application_Model_MyAcl::getInstance();
+       //Zend_Debug::dump($acl);
+         return true;
         $identidade = $this->_auth->getIdentity();
-        $arUri = explode('/', $uri);
-        if($this->_acl->allow($identidade->role, $arUri[1], $arUri[2]))
-        {
-            return true;
+        $arUri = explode('#', $uri);
+
+        $resource = $arUri[1];
+        //$privilege = $arUri[2];
+        $role = $identidade->role;
+        if(empty($role)) {
+            $role = 'guest';
         }
-        return false;
+        //echo $role.','. $resource . '<br/>';
+//        if($acl->isAllowed($role, $resource) == true)
+//        {
+//           
+//           return true;
+//        }
+//         
+//        return false;
     }
+//    private function autorizaUriPelaAcl($uri)
+//    {
+//
+//        $acl = Application_Model_MyAcl::getInstance();
+// 
+//        
+//        $identidade = $this->_auth->getIdentity();
+//        $arUri = explode('/', $uri);
+//
+//        $resource = $arUri[1];
+//        $privilege = $arUri[2];
+//        $role = $identidade->role;
+//        if(empty($role)) {
+//            $role = 'guest';
+//        }
+//        
+//
+//// 
+////        if($acl->isAllowed($role, $resource, $privilege) == true)
+////        {
+////           
+//            return true;
+////        }
+//         
+//     //   return false;
+//       
+//    }
 }
 
 ?>

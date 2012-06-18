@@ -13,9 +13,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
     }    
     protected function _initPlugins(){
-        $ctrl = Zend_Controller_Front::getInstance();
-        $ctrl->registerPlugin(new Application_Plugin_CheckLogin());
-        $ctrl->registerPlugin(new Application_Plugin_CheckBrowser());
+       $ctrl = Zend_Controller_Front::getInstance();
+       $ctrl->registerPlugin(new Application_Plugin_CheckLogin());
+       $ctrl->registerPlugin(new Application_Plugin_CheckBrowser());
     }
     
     protected function _initTranlate(){
@@ -29,6 +29,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     protected function _initSalt(){
         $salt = $this->getOption('pass');
         Zend_Registry::set('salt',$salt['salt']);   
+    }
+    protected function _initConfiguriesf(){
+  //   $acl = new Application_Model_MyAcl;
+   //$aclHelper = new Application_Model_AclHelper(null,array('acl'=>$acl));
+//       // Zend_Debug::dump($aclHelper,"Helper : ");
+//       Zend_Controller_Action_HelperBroker::addHelper($aclHelper);
     }
      
          
