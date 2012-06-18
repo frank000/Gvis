@@ -1,0 +1,20 @@
+<br /><br />
+<div id="view-content">
+	<?php
+        $this->Grid(
+                $this->oDados ,
+                array(
+                    'id',
+                    'nome',
+                    'email',
+                    'celular',
+                    'cidade'
+                ),
+                array(
+                    'id' => 'lista',
+                    'class' => 'tabela',
+                    'cellspacing' => '1'
+                )
+            );
+        ?>
+</div>
