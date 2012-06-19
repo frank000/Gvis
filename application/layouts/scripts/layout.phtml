@@ -1,36 +1,29 @@
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <?php  $this->headScript()->prependFile($this->baseUrl().'/js/jquery-1.7.2.min.js', 'text/javascript');?>
-      <?php echo $this->headScript()->appendFile($this->baseUrl().'/js/jquery-ui-1.8.21.custom.min.js', 'text/javascript');?>
-        <link type="text/css" href="<?php echo $this->baseUrl().'/css/ui-lightness/jquery-ui-1.8.21.custom.css'?>" rel="stylesheet" />
-
-      <?php //$this->headLink()->prependStylesheet($this->baseUrl().'/css/bootstrap.css');?>
-      <?php// $this->headLink()->appendStylesheet($this->baseUrl().'/css/bootstrap-responsive.css');?>
-      <?php// echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/docs.css');?>
-      
 
 
-<style>
-    body{
-        font-family: verdana
-    }
-    a:hover{
-        text-decoration: underline
-    }
-    a:visited,a:link,a:active{
-        color: black;
-        text-decoration: none
-    }
-    #cssdropdown{
-        display: inline 
-    }
-    li.headlink ul { display: none; }
-       li.headlink:hover ul { display: block; }
-       .children_menu{
-           display: block
-       }
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>css modelos</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php  $this->headScript()->prependFile($this->baseUrl().'/js/jquery-1.7.2.min.js', 'text/javascript');?>
+<?php echo $this->headScript()->appendFile($this->baseUrl().'/js/jquery-ui-1.8.21.custom.min.js', 'text/javascript');?>
+    <link type="text/css" href="<?php echo $this->baseUrl().'/css/ui-lightness/jquery-ui-1.8.21.custom.css'?>" rel="stylesheet" />
+    <link href="<?php echo $this->baseUrl(); ?>/css/layout/reset.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?php echo $this->baseUrl(); ?>/css/layout/typography.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?php echo $this->baseUrl(); ?>/css/layout/main.css" rel="stylesheet" type="text/css" />
+<!--[if lte IE 6]>
+<style type="text/css">
+.clearfix {height: 1%;}
+img {border: none;}
+#resol {position:absolute;} body {overflow-x: hidden;} 
 </style>
+<![endif]-->
+<!--[if gte IE 7.0]>
+<style type="text/css">
+.clearfix {display: inline-block;}
+</style>
+<![endif]-->
 <script>
 
 	$(document).ready(function(){
@@ -42,10 +35,10 @@
 	});
 	
 
-</script>    
-    </head>
-    <body data-spy="scroll" data-target=".subnav" data-offset="50">
-
+</script>  
+</head>
+<body>
+    
         <?php    $arMenu = array(
             'Início'=>array('uri'=>'/'),
             'Vistorias'=>array('uri'=>'#vistorias',
@@ -67,7 +60,10 @@
                      'Consultar/Editar'=>array('uri'=>'/usuarios/consultar')
                  ))  
                 );?>
-        <!--NOTIFICATOR -->
+<div id="mainwrap">	
+    
+    
+      <!--NOTIFICATOR -->
         <?php $flashMessenger = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger');?>
 
         <?php if ($flashMessenger->setNamespace('success')->hasMessages()): ?>
@@ -98,13 +94,88 @@
         <!--NOTIFICATOR -->
         
         
-        <?php  echo $this->montar($arMenu);?>
-        <div id='filhos'>
+        
+        
+        
+<!--BEGIN OF TERMS OF USE. DO NOT EDIT OR DELETE THESE LINES. IF YOU EDIT OR DELETE THESE LINES AN ALERT MESSAGE MAY APPEAR WHEN TEMPLATE WILL BE ONLINE-->
+ <div id="footer_terms">
+  <h1><strong>css modelos</strong> no <a href="http://www.layouts-templates.com/"><strong>css modelos</strong></a></h1>
+ </div>
+ <!--END OF TERMS OF USE-->
+	<div id="leftcol">
+    	<h1 id="logo"><a href="?">Corporative <span>Group</span></a></h1>
+               
+            <?php  echo $this->montar($arMenu);?>
+      
             <a href="<?php echo $this->baseUrl(); ?>/authentication/logout">Sair</a>
+        
+<!--        <div id="mainnav">
+        	<ul>
+            	<li><a href="?"><span>Home</span></a></li>
+                <li><a href="?"><span>Portfolio</span></a></li>
+                <li><a href="?"><span>Services</span></a></li>
+                <li><a href="?"><span>Partners</span></a></li>
+                <li><a href="?"><span>Contacts</span></a></li>
+            </ul>
+        </div>-->
+        <div class="module-box grey1">
+        	<h2 class="none">Missão</h2>
+        	<div class="module-content">
+                <p>Trazer ao mundo dos negócios benefícios.</p>
+            </div>
         </div>
-
-        <h2>Layout</h2>
-        <?php echo $this->layout()->content; ?>
-
-    </body>
+        <div class="module-box">
+        	<h2 class="orange">News</h2>
+            <div class="module-content">
+            	<ul class="none">
+                	<li>
+                    	<strong><a href="?" class="black">21 December 2008</a></strong>
+                        <p>Novidades 1 - texto completo</p>
+                        <a href="?">Read news</a>
+                    </li>
+                    <li>
+                    	<strong><a href="?" class="black">21 December 2008</a></strong>
+                        <p>Novidades 2 texto completo</p>
+                        <a href="?">Read news</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="module-box">
+        	<h2 class="grey">Novidaes</h2>
+            <div class="module-content grey">
+            	<label for="email">Seu e-mail:</label>
+                <input type="text" style="with: 160px;" value="" id="email" />
+                <input type="submit" value="OK" />
+            </div>
+        </div>
+    </div>
+    <div id="rightcol">
+    	<div id="header" class="clearfix">
+        	<div id="call">TELEFONE</div>
+            <div id="search"><input type="text" style="with: 160px;" value="" id="input-search" /><input type="submit" value="ok" id="ok" /></div>
+        </div>
+        <div id="banner">
+            <img src="<?php echo $this->baseUrl(); ?>/images/photo.jpg"/>
+        </div>
+        <div id="content">
+            <?php echo $this->layout()->content; ?>
+        </div>
+        <div id="footer">
+        	<div id="botnav" style="text-align:center">
+            	<ul class="clearfix">
+                	<li><a href="?">Sobre Nós</a></li>
+                    <li><a href="?">Portfólio</a></li>
+                    <li><a href="?">Serviços</a></li>
+                    <li><a href="?">Parceiros</a></li>
+                    <li><a href="?">Contato</a></li>
+                </ul>
+            </div>
+            <div id="copyright">
+            	Copyright (c) 2003-2009 &nbsp;|&nbsp; SuperNova TI - GVIS
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 </html>

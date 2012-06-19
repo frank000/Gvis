@@ -26,8 +26,8 @@ class Default_Model_ClienteModel {
               $data['cpf_cli'] = $cliente['cnpj'];
            }
            $data['obs_cli'] = $cliente['obs']; 
-            //Zend_Debug::dump($data,'model');
-           $rs = $tb->insert($cliente);
+            Zend_Debug::dump($tb,'model');
+         //  $rs = $tb->insert($cliente);
            return $rs;
         }  catch (Zend_Db_Exception $e) {
             $e->getTrace();

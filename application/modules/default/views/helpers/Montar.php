@@ -28,14 +28,20 @@ class Zend_View_Helper_Montar extends Zend_View_Helper_Abstract{
        $this->_acl =  $acl;
        $this->_auth = Zend_Auth::getInstance();
     
-        $menu = "<div>Menu<br/>";
+      //  $menu = "<div>Menu<br/>";
+       $menu = "<div id='mainnav' style='background: url(".$this->view->baseUrl()."/images/mainnav_bg.gif) left top repeat-y;'><br/>";
          $menu .= "<ul id='cssdropdown'>";
         foreach ($itensMenu as $label => $item) {
            
            //$this->autorizaUriPelaAcl($item['uri']);
             if($this->autorizaUriPelaAclAltoNível($item['uri'])) {
                     if($label != 'child'){
-                  $menu .= "<li class='headlink'><a href='".$this->view->baseUrl().$item['uri']."'>".$label."</a>";
+                  $menu .= "<li class='headlink' style='background: url(".$this->view->baseUrl()."/images/mainnav_bg.gif) left top repeat-x;'>
+                                <a href='".$this->view->baseUrl().$item['uri']."'>
+                                     <span >
+                                    ".$label."
+                                      </span>
+                                </a>";
              }
              if(isset($item['child'])){
                  $menu .= "<ul>";
@@ -43,7 +49,13 @@ class Zend_View_Helper_Montar extends Zend_View_Helper_Abstract{
                        // Zend_Debug::dump($value['uri']);
                     
                     if($this->autorizaUriPelaAcl($value['uri']) == true) {
-                         $menu .= "<li class='children_menu' ><a href='".$this->view->baseUrl().$value['uri']."'>  ".$lbel."</a></li>";
+                         $menu .= "<li class='children_menu' >
+                                    <a style='background: url(".$this->view->baseUrl()."/images/mainnav_bg.gif) left top repeat-x;' href='".$this->view->baseUrl().$value['uri']."'>  
+                                        <span style='background: url(".$this->view->baseUrl()."/images/bullet1.gif) 19px 50% no-repeat;'>
+                                        ".$lbel."
+                                        </span>
+                                    </a>
+                                    </li>";
                     } 
                        
                  }
