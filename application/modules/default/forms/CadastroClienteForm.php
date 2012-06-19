@@ -19,19 +19,18 @@ class Default_Form_CadastroClienteForm extends Zend_Form
         $validators = array(new Zend_Validate_NotEmpty(),new Zend_Validate_Alnum());
         $filters = array(new zend_filter);
         $multiOptions = array(
-                "fisica" => "Pessoa Física",
-                "juridica" => "Pessoa Jurídica"
+                "f" => "Pessoa Física",
+                "j" => "Pessoa Jurídica"
         );
         
         $nome = new Zend_Form_Element_Text('nome',array('label'=>'Nome: '));
         $nome->isRequired();
-        $nome->addValidators($validatorsName)->addValidator(new Zend_Validate_StringLength(array('min' => 5) ))
-                ->addFilter(new Zend_Filter_StripTags())
-                ->removeValidator(z);
+        $nome->addValidator(new Zend_Validate_NotEmpty())->addValidator(new Zend_Validate_StringLength(array('min' => 5) ))
+                ->addFilter(new Zend_Filter_StripTags());
         
         $endereco = new Zend_Form_Element_Text('endereco',array('label'=>'Endereço: '));
         $endereco->isRequired();
-        $endereco->addValidators($validators)->addValidator(new Zend_Validate_StringLength(array('min' => 5) ))
+        $endereco->addValidator(new Zend_Validate_NotEmpty())->addValidator(new Zend_Validate_StringLength(array('min' => 5) ))
                 ->addFilter(new Zend_Filter_StripTags());
         
         $telefone = new Zend_Form_Element_Text('telefone',array('label'=>'Telefone: '));

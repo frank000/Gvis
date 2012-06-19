@@ -17,6 +17,17 @@ class Default_ClientesController extends Zend_Controller_Action
     {
         $cadastroForm = new Default_Form_CadastroClienteForm();
         $this->view->form = $cadastroForm;
+        if($this->_request->isPost()) {
+            $formData = $this->_request->getPost();
+            if($cadastroForm->isValid($formData)) {
+                $clienteModel = new Default_Model_ClienteModel();
+              
+                $rs = $clienteModel->cadastrar($formData);
+                if($rs != false) {
+                    //retorna sucesso
+                }
+            }
+        }
     }
 
     public function consultarAction()
