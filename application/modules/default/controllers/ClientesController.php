@@ -10,11 +10,27 @@ class Default_ClientesController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $this->_helper->FlashMessenger()
+                ->setNamespace('success')
+                ->addMessage('Bem vindo!');
+ $this->_helper->FlashMessenger()
+                ->setNamespace('error')
+                ->addMessage('Bem vindo!');
+        /* error message */
+       // $this->_helper->FlashMessenger()->setNamespace('error')->addMessage('You have no permissions');
+
     }
 
     public function cadastrarAction()
     {
+//        $this->_helper->FlashMessenger()
+//                ->setNamespace('success')
+//                ->addMessage('Bem vindo!');
+         $this->_helper->FlashMessenger()
+                ->setNamespace('error')
+                ->addMessage('Bem vindo!');
+        
+         
         $cadastroForm = new Default_Form_CadastroClienteForm();
         $this->view->form = $cadastroForm;
         if($this->_request->isPost()) {

@@ -38,7 +38,7 @@
 			function() { $('ul', this).css('display', 'block'); },
 			function() { $('ul', this).css('display', 'none'); });
                 $( "#tabs" ).tabs();        
-                        
+                $("#flashSucess,#flashError").delay(3000).slideUp('1000');        
 	});
 	
 
@@ -67,6 +67,37 @@
                      'Consultar/Editar'=>array('uri'=>'/usuarios/consultar')
                  ))  
                 );?>
+        <!--NOTIFICATOR -->
+        <?php $flashMessenger = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger');?>
+
+        <?php if ($flashMessenger->setNamespace('success')->hasMessages()): ?>
+            <div id="flashSucess" class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+            <?php foreach ($flashMessenger->getMessages() as $msg): ?>
+                
+                <p>
+                <span  style="float: left; margin-right: .3em;"></span>
+<!--                <strong>Hey!</strong>-->
+                <?php echo $msg ?>
+                </p>
+            <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($flashMessenger->setNamespace('error')->hasMessages()): ?>
+            <div id="flashError" class="ui-state-error ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+            <?php foreach ($flashMessenger->getMessages() as $msg): ?>
+                <p>
+                <span style="float: left; margin-right: .3em;"></span>
+<!--                <strong>Hey!</strong>-->
+                <?php echo $msg ?>
+                </p>
+        
+            <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+        <!--NOTIFICATOR -->
+        
+        
         <?php  echo $this->montar($arMenu);?>
         <div id='filhos'>
             <a href="<?php echo $this->baseUrl(); ?>/authentication/logout">Sair</a>
