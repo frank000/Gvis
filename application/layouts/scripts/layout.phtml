@@ -8,10 +8,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php  $this->headScript()->prependFile($this->baseUrl().'/js/jquery-1.7.2.min.js', 'text/javascript');?>
 <?php echo $this->headScript()->appendFile($this->baseUrl().'/js/jquery-ui-1.8.21.custom.min.js', 'text/javascript');?>
-    <link type="text/css" href="<?php echo $this->baseUrl().'/css/ui-lightness/jquery-ui-1.8.21.custom.css'?>" rel="stylesheet" />
+    <link type="text/css" href="<?php echo $this->baseUrl().'/css/pepper-grinder/jquery-ui-1.8.21.custom.css'?>" rel="stylesheet" />
     <link href="<?php echo $this->baseUrl(); ?>/css/layout/reset.css" rel="stylesheet" type="text/css" media="all" />
     <link href="<?php echo $this->baseUrl(); ?>/css/layout/typography.css" rel="stylesheet" type="text/css" media="all" />
     <link href="<?php echo $this->baseUrl(); ?>/css/layout/main.css" rel="stylesheet" type="text/css" />
+    
+      <?php $this->headLink()->prependStylesheet($this->baseUrl().'/css/bootstrap.css');?>
+      <?php $this->headLink()->appendStylesheet($this->baseUrl().'/css/bootstrap-responsive.css');?>
+      <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/docs.css');?>
 <!--[if lte IE 6]>
 <style type="text/css">
 .clearfix {height: 1%;}
@@ -65,7 +69,7 @@ img {border: none;}
     
       <!--NOTIFICATOR -->
         <?php $flashMessenger = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger');?>
-
+      
         <?php if ($flashMessenger->setNamespace('success')->hasMessages()): ?>
             <div id="flashSucess" class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
             <?php foreach ($flashMessenger->getMessages() as $msg): ?>
@@ -79,7 +83,7 @@ img {border: none;}
             </div>
         <?php endif; ?>
 
-        <?php if ($flashMessenger->setNamespace('error')->hasMessages()): ?>
+        <?php if ($flashMessenger->setNamespace('diverror')->hasMessages()): ?>
             <div id="flashError" class="ui-state-error ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
             <?php foreach ($flashMessenger->getMessages() as $msg): ?>
                 <p>
@@ -98,9 +102,7 @@ img {border: none;}
         
         
 <!--BEGIN OF TERMS OF USE. DO NOT EDIT OR DELETE THESE LINES. IF YOU EDIT OR DELETE THESE LINES AN ALERT MESSAGE MAY APPEAR WHEN TEMPLATE WILL BE ONLINE-->
- <div id="footer_terms">
-  <h1><strong>css modelos</strong> no <a href="http://www.layouts-templates.com/"><strong>css modelos</strong></a></h1>
- </div>
+
  <!--END OF TERMS OF USE-->
 	<div id="leftcol">
     	<h1 id="logo"><a href="?">Corporative <span>Group</span></a></h1>
@@ -146,7 +148,7 @@ img {border: none;}
             <div class="module-content grey">
             	<label for="email">Seu e-mail:</label>
                 <input type="text" style="with: 160px;" value="" id="email" />
-                <input type="submit" value="OK" />
+                <input class="btn" type="submit" value="OK" />
             </div>
         </div>
     </div>
