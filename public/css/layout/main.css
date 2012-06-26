@@ -60,11 +60,15 @@ h1#logo {
 	border-top: solid 20px #343428;
        
 }
-
+ #cssdropdown li a, #cssdropdown li  {
+	
+        margin-top: -20px;
+}
 #cssdropdown ul li, #cssdropdown li a, #cssdropdown li a span {
 	display: block;
 	height: auto;
 	line-height: 46px;
+       
 }
 
 #cssdropdown ul {
@@ -77,7 +81,7 @@ h1#logo {
 }
 
 #cssdropdown ul li a {
-	background: url(../images/mainnav_bg.gif) left top repeat-x;
+	background: url(../images/mainnav_bg.gif) left top repeat;
 }
 
 #cssdropdown ul li a span {
