@@ -20,6 +20,10 @@ class Default_Form_Login extends Zend_Form
                 $submit
             )
         );
+        
+//        $this->addDecorator(
+//                array('HtmlTag')
+//                );
         $this->addDisplayGroup(array('usuario','senha'), 'login',
                 array('legend'=>'Acesso ao sistema','width'=>'250px'));
          $this->addDisplayGroup(array('Enviar'), 'send',array('width'=>'250px'));
