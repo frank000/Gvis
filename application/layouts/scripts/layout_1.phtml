@@ -3,39 +3,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <?php  $this->headScript()->prependFile($this->baseUrl().'/js/jquery-1.7.2.min.js', 'text/javascript');?>
       <?php echo $this->headScript()->appendFile($this->baseUrl().'/js/jquery-ui-1.8.21.custom.min.js', 'text/javascript');?>
-      <?php //$this->headLink()->prependStylesheet($this->baseUrl().'/css/bootstrap.css');?>
-      <?php// $this->headLink()->appendStylesheet($this->baseUrl().'/css/bootstrap-responsive.css');?>
-      <?php// echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/docs.css');?>
+      <?php $this->headLink()->prependStylesheet($this->baseUrl().'/css/bootstrap.css');?>
+      <?php $this->headLink()->appendStylesheet($this->baseUrl().'/css/bootstrap-responsive.css');?>
+      <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/layout_1/main.css');?>
       
         <script type="text/javascript" src="multimenu.js"></script>
 <link rel="stylesheet" type="text/css" href="multimenu.css" />
 
-<style>
-    body{
-        font-family: verdana
-    }
-    a:hover{
-        text-decoration: underline
-    }
-    a:visited,a:link,a:active{
-        color: black;
-        text-decoration: none
-    }
-    #cssdropdown{
-        display: inline 
-    }
-    li.headlink ul { display: none; }
-       li.headlink:hover ul { display: block; }
-       .children_menu{
-           display: block
-       }
-</style>
+
 <script>
 
 	$(document).ready(function(){
-		$('li.headlink').hover(
-			function() { $('ul', this).css('display', 'block'); },
-			function() { $('ul', this).css('display', 'none'); });
+
 	});
 	
 
@@ -67,7 +46,7 @@
         <?php// echo $this->montar($arMenu);?>
         <div id='filhos'></div>
 
-        <h2>Layout NOVO</h2>
+        <h2>Gvis 1.0</h2>
         <?php echo $this->layout()->content; ?>
 
     </body>

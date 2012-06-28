@@ -13,7 +13,7 @@ class Default_AuthenticationController extends Zend_Controller_Action
        $formLogin = new Default_Form_Login();
        $formLogin->setAction($this->view->baseUrl() . '/authentication/index');
        
-       
+       $formLogin->getElement('Enviar')->setAttrib('class', 'btn');
        if($this->_request->isPost()){//aceita
            $dataForm = $this->_request->getPost();
            if($formLogin->isValid($dataForm)){
