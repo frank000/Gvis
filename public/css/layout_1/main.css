@@ -1,0 +1,36 @@
+/* 
+    Document   : main
+    Created on : 28/06/2012, 15:57:26
+    Author     : 03424754102
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color: #f0ebeb
+}
+form{
+    margin-left: 42.5%;
+    width: 250px;
+}
+h2{
+    margin-left: 50%;
+  
+}
+
+#usuario,#senha{
+    height: 20px
+}
+
+#fieldset-login{
+    height: 130px;
+}
+dl{
+    margin-left: 20px;
+
+}
