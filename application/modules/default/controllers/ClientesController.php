@@ -32,6 +32,8 @@ class Default_ClientesController extends Zend_Controller_Action
         
          
         $cadastroForm = new Default_Form_CadastroClienteForm();
+        $cadastroForm->getElement('Cancelar')->setAttrib('class', 'btn');
+        $cadastroForm->getElement('Cadastrar')->setAttrib('class', 'btn');
         $this->view->form = $cadastroForm;
         if($this->_request->isPost()) {
             $formData = $this->_request->getPost();
