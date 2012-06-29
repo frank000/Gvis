@@ -35,10 +35,19 @@ body {
 	float: left;
 }
 
-h1#logo {
+span#logo {
 	margin: 0;
 }
-
+#logo{
+   	display: block;
+	height: 72px;
+	line-height: 72px;
+	font-size: 18px;
+	color: #000;
+	font-family: "Trebuchet MS";
+	text-transform: uppercase;
+	padding: 0 20px;
+}
 #logo a {
 	display: block;
 	height: 72px;
@@ -48,6 +57,7 @@ h1#logo {
 	font-family: "Trebuchet MS";
 	text-transform: uppercase;
 	padding: 0 20px;
+        
 }
 
 #logo a span {
