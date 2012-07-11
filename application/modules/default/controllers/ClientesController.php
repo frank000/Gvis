@@ -80,12 +80,14 @@ class Default_ClientesController extends Zend_Controller_Action
         $grid->setAction($action);
   
         $grid->setSource(new Bvb_Grid_Source_Array($rs,$header));
-        $form = new Bvb_Grid_Form();
-        $form->setAdd(true)->setEdit(true)->setDelete(true);
-        $grid->setForm($form);
+//        $form = new Bvb_Grid_Form();
+//        $form->setAdd(true)->setEdit(true)->setDelete(true);
+//        $grid->setForm($form);
  //       $grid->updateColumn('id_cli',array('title'=>'ID'));
         $fa= $grid->getSource();
-      //  Zend_Debug::dump($fa);
+        $grid->setRecordsPerPage(2);
+        $grid->setColumnsHidden(array('ID','Pessoa','PessoaJ'));
+     //  Zend_Debug::dump($fa);
         $this->view->grid = $grid->deploy();
         
          $this->view->oDados = $objeto;
