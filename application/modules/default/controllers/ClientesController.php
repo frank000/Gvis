@@ -42,7 +42,7 @@ class Default_ClientesController extends Zend_Controller_Action
               
                 $rs = $clienteModel->cadastrar($formData);
                 if($rs != false) {
-                    //retorna sucesso
+                    echo "Sucesso";
                 }
             }
         }
@@ -50,7 +50,45 @@ class Default_ClientesController extends Zend_Controller_Action
 
     public function consultarAction()
     {
-        // action body
+        $modelCLiente = new Default_Model_ClienteModel();
+        $rs =  $modelCLiente->fetchAll()->toArray();
+        foreach ($rs as $key => $value)
+        {
+            $objeto->$key = $value;
+        }
+       // Zend_Debug::dump($configs);
+        $configs = new Zend_Config_Ini(APPLICATION_PATH.'/configs/grids/grid.ini');
+      //  Zend_Debug::dump($configs);
+
+        $grid = Bvb_Grid::factory('Table',$config);
+        $header = array('ID',
+           'Nome','Endereço','Telefone',
+            'Pessoa',
+            'PessoaJ','cpf','Observação');
+        $grid->addOptions(array('caption'=>'Titulo'));
+        
+//        for($i = 0 ; $i < 3 ; $i++){
+//            $right = new Bvb_Grid_Extra_Column();
+//            $right->position('right')->name('unique_name')->title('Right')->decorator("<a title=''>{{ID}}</a>"."<a title=''>Link {{ID}}</a>");
+//
+//
+//            $grid->addExtraColumns($right);
+// 
+//        }
+
+        $action = array( "<a title=''>{{ID}}</a>");
+        $grid->setAction($action);
+  
+        $grid->setSource(new Bvb_Grid_Source_Array($rs,$header));
+        $form = new Bvb_Grid_Form();
+        $form->setAdd(true)->setEdit(true)->setDelete(true);
+        $grid->setForm($form);
+ //       $grid->updateColumn('id_cli',array('title'=>'ID'));
+        $fa= $grid->getSource();
+      //  Zend_Debug::dump($fa);
+        $this->view->grid = $grid->deploy();
+        
+         $this->view->oDados = $objeto;
     }
 
     public function detalhesAction()

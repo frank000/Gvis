@@ -10,11 +10,11 @@
  *
  * @author 03424754102
  */
-class Default_Model_ClienteModel {
+class Default_Model_ClienteModel extends Default_Model_DbTable_ClienteTable{
     
     public function cadastrar($cliente) {
         
-        $tb = new Default_Model_DbTable_ClienteTable();
+        
         try {
            $data['no_cli'] = $cliente['nome']; 
            $data['en_cli'] = $cliente['endereco']; 
@@ -26,8 +26,8 @@ class Default_Model_ClienteModel {
               $data['cpf_cli'] = $cliente['cnpj'];
            }
            $data['obs_cli'] = $cliente['obs']; 
-            Zend_Debug::dump($tb,'model');
-         //  $rs = $tb->insert($cliente);
+          //  Zend_Debug::dump($tb,'model');
+          $rs = $this->insert($data);
            return $rs;
         }  catch (Zend_Db_Exception $e) {
             $e->getTrace();
