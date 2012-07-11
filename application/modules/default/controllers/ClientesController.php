@@ -86,6 +86,7 @@ class Default_ClientesController extends Zend_Controller_Action
  //       $grid->updateColumn('id_cli',array('title'=>'ID'));
         $fa= $grid->getSource();
         $grid->setRecordsPerPage(2);
+        $grid->setNameTable('Franklim');
         $grid->setColumnsHidden(array('ID','Pessoa','PessoaJ'));
      //  Zend_Debug::dump($fa);
         $this->view->grid = $grid->deploy();

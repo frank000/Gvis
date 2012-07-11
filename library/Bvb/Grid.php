@@ -643,7 +643,7 @@ abstract class Bvb_Grid {
         $this->getSource()->setCache($this->getCache());
 
         $tables = $this->getSource()->getMainTable();
-
+       
         $this->_data['table'] = $tables['table'];
         if (isset($tables['schema']))
             $this->_data['schema'] = $tables['schema'];
@@ -2709,6 +2709,9 @@ abstract class Bvb_Grid {
         return $this;
     }
 
+    public function setNameCaption($name){
+         $this->emitEvent('grid.init_deploy', array());
+    }
     /**
      * Deploys
      *

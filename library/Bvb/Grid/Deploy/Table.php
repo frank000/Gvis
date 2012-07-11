@@ -173,6 +173,7 @@ class Bvb_Grid_Deploy_Table extends Bvb_Grid implements Bvb_Grid_Deploy_DeployIn
      */
     protected $_crudColumnsPosition = 'left';
 
+    protected $_captionHead;
     /**
      * Class construct
      *
@@ -209,7 +210,10 @@ class Bvb_Grid_Deploy_Table extends Bvb_Grid implements Bvb_Grid_Deploy_DeployIn
             }
         }
     }
-
+    public function setNameTable($name){
+        if(!empty($name))
+            $this->_captionHead = $name;
+    }
     /**
      * Buils form values
      *
@@ -852,8 +856,13 @@ class Bvb_Grid_Deploy_Table extends Bvb_Grid implements Bvb_Grid_Deploy_DeployIn
                     if ($this->getUseKeyEventsOnFilters() === false && $this->getInfo('noFilters') != 1) {
 //                        $final1 .= "<button id='apply_filters' onclick=\"_" . $this->getGridId()
 //                                . "gridChangeFilters(1)\">"
-//                                . $this->__('Apply Filter') . "</button>";
+//                               . $this->__('Apply Filter') . "</button>";
+                    
+                      
+                        
+                        
                     }
+                     $final1 .= "<caption>".$this->_captionHead."</caption>";
 
                     if ($this->_allowAdd == true)
                         $final1 .= $addButton;
