@@ -850,18 +850,20 @@ class Bvb_Grid_Deploy_Table extends Bvb_Grid implements Bvb_Grid_Deploy_DeployIn
 
                 if (strlen($final1) > 5 || $this->getUseKeyEventsOnFilters() == false || $addButton) {
                     if ($this->getUseKeyEventsOnFilters() === false && $this->getInfo('noFilters') != 1) {
-                        $final1 .= "<button id='apply_filters' onclick=\"_" . $this->getGridId()
-                                . "gridChangeFilters(1)\">"
-                                . $this->__('Apply Filter') . "</button>";
+//                        $final1 .= "<button id='apply_filters' onclick=\"_" . $this->getGridId()
+//                                . "gridChangeFilters(1)\">"
+//                                . $this->__('Apply Filter') . "</button>";
                     }
 
                     if ($this->_allowAdd == true)
                         $final1 .= $addButton;
-
+                   
                     $this->_render['addButton'] = $addButton;
 
                     $this->_render['extra'] = $this->_temp['table']->extra($final1);
                     $this->_renderDeploy['extra'] =  $this->_temp['table']->extra($final1);
+                 
+                    
                 }
             }
         }
@@ -1106,8 +1108,8 @@ class Bvb_Grid_Deploy_Table extends Bvb_Grid implements Bvb_Grid_Deploy_DeployIn
                                         $link2 = '';
                                     }
 
-                                    $grid .= $this->_temp['table']->titlesLoop($link2 . $title['value'] . $link1,
-                                                                               $colspan);
+                                   $grid .= $this->_temp['table']->titlesLoop($link2 . $title['value'] . $link1,
+                                                                              $colspan);
                             } else {
                                     if ($this->getShowOrderImages() == false) {
                                         $hrefTitle = '';
@@ -1524,16 +1526,16 @@ class Bvb_Grid_Deploy_Table extends Bvb_Grid implements Bvb_Grid_Deploy_DeployIn
 
 
         if ($actual != 1) {
-            $pag = " <a href=\"$url/start/0\">" . $this->__('First')
+            $pag = " <a href=\"$url/start/0\">" . $this->__('Primeiro')
                  . "</a>&nbsp;&nbsp;<a href=\"$url/start{$this->getGridId()}/" . (($actual - 2) * $ppagina)
-                 . "\">" . $this->__('Previous') . "</a>&nbsp;&nbsp;" . $pag;
+                 . "\">" . $this->__('Anterior') . "</a>&nbsp;&nbsp;" . $pag;
         }
 
         if ($actual != $npaginas) {
 
             $pag .= "&nbsp;&nbsp;<a href=\"$url/start{$this->getGridId()}/" . ($actual * $ppagina) . "\">"
-                  . $this->__('Next') . "</a>&nbsp;&nbsp;<a href=\"$url/start{$this->getGridId()}/"
-                  . (($npaginas - 1) * $ppagina) . "\">" . $this->__('Last') . "</a>";
+                  . $this->__('Próximo') . "</a>&nbsp;&nbsp;<a href=\"$url/start{$this->getGridId()}/"
+                  . (($npaginas - 1) * $ppagina) . "\">" . $this->__('Último') . "</a>";
         }
 
         if ($npaginas > 1 && $this->getInfo("limit") == 0) {
@@ -1557,7 +1559,7 @@ class Bvb_Grid_Deploy_Table extends Bvb_Grid implements Bvb_Grid_Deploy_DeployIn
                 );
             }
 
-            $pageSelect = ' | ' . $this->__('Page') . ':' . $pageSelect;
+            $pageSelect = ' | ' . $this->__('Página') . ':' . $pageSelect;
         }
 
         if ($npaginas > 1 || count($this->_export) > 0) {
@@ -1600,8 +1602,8 @@ class Bvb_Grid_Deploy_Table extends Bvb_Grid implements Bvb_Grid_Deploy_DeployIn
 
                 $result2 =
                     $this->_temp['table']->pagination(' | ' . $pag,
-                          $registoActual . ' ' . $this->__('to') . ' '
-                            . $registoFinal . ' ' . $this->__('of') . '  '
+                          $registoActual . ' ' . $this->__('para') . ' '
+                            . $registoFinal . ' ' . $this->__('de') . '  '
                             . $this->_totalRecords,
                           $menuPerPage,
                           $pageSelect);
@@ -1996,9 +1998,9 @@ class Bvb_Grid_Deploy_Table extends Bvb_Grid implements Bvb_Grid_Deploy_DeployIn
                   . $this->_buildTitlesTable(parent::_buildTitles(),true)
                   . $this->_buildExtraRows('afterTitles');
 
-        $bFilters = $this->_buildExtraRows('beforeFilters')
-                  . $this->_buildFiltersTable(parent::_buildFilters())
-                  . $this->_buildExtraRows('afterFilters');
+//        $bFilters = $this->_buildExtraRows('beforeFilters')
+//                  . $this->_buildFiltersTable(parent::_buildFilters())
+//                  . $this->_buildExtraRows('afterFilters');
 
         $bGrid    = $this->_buildGridTable(parent::_buildGrid());
 

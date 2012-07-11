@@ -1214,7 +1214,7 @@ class Bvb_Grid_Source_Zend_Select extends Bvb_Grid_Source_Db_DbAbstract implemen
         }
         $cols = $this->getDescribeTable($table['table'], $table['schema']);
 
-        return $this->buildFormElements($cols, array(), $inputsType, array());
+       return $this->buildFormElements($cols, array(), $inputsType, array());
     }
 
     /**

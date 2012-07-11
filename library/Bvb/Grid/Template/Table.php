@@ -80,12 +80,12 @@ class Bvb_Grid_Template_Table {
     {
         if($this->buildAbstract)
                 return;
-        return "    <tr>";
+        return "    <thead>";
     }
 
     public function titlesEnd()
     {
-        return "    </tr>" . PHP_EOL;
+        return "    </thead>" . PHP_EOL;
     }
 
     public function titlesLoop($title, $colspan)
