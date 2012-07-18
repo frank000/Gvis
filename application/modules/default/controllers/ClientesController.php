@@ -10,10 +10,10 @@ class Default_ClientesController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $this->_helper->FlashMessenger()
+        $this->_helper->_flashMessenger
                 ->setNamespace('success')
                 ->addMessage('Bem vindo!');
- $this->_helper->FlashMessenger()
+ $this->_helper->_flashMessenger
                 ->setNamespace('error')
                 ->addMessage('Bem vindo!');
         /* error message */
@@ -26,7 +26,7 @@ class Default_ClientesController extends Zend_Controller_Action
 //        $this->_helper->FlashMessenger()
 //                ->setNamespace('success')
 //                ->addMessage('Bem vindo!');
-         $this->_helper->FlashMessenger()
+ $this->_helper->_flashMessenger
                 ->setNamespace('error')
                 ->addMessage('Bem vindo!');
         
@@ -52,15 +52,11 @@ class Default_ClientesController extends Zend_Controller_Action
     {
         $modelCLiente = new Default_Model_ClienteModel();
         $rs =  $modelCLiente->fetchAll()->toArray();
-        foreach ($rs as $key => $value)
-        {
-            $objeto->$key = $value;
-        }
-       // Zend_Debug::dump($configs);
-        $configs = new Zend_Config_Ini(APPLICATION_PATH.'/configs/grids/grid.ini');
+   
+      //  $configs = new Zend_Config_Ini(APPLICATION_PATH.'/configs/grids/grid.ini');
       //  Zend_Debug::dump($configs);
 
-        $grid = Bvb_Grid::factory('Table',$config);
+        $grid = Bvb_Grid::factory('Table');
         $header = array('ID',
            'Nome','Endereço','Telefone',
             'Pessoa',

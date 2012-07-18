@@ -1,6 +1,6 @@
 <?php
 
-class Default_IndexController extends Zend_Controller_Action
+class Default_IndexController extends My_Controller_Action
 {
 
     public function init()
@@ -20,7 +20,8 @@ class Default_IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+              
+        $this->addMessage(parent::MSG_SUCESS, 'Bem vindo Lulinha!');
     }
 
 
