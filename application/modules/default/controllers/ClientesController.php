@@ -10,12 +10,12 @@ class Default_ClientesController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $this->_helper->_flashMessenger
-                ->setNamespace('success')
-                ->addMessage('Bem vindo!');
- $this->_helper->_flashMessenger
-                ->setNamespace('error')
-                ->addMessage('Bem vindo!');
+//        $this->_helper->_flashMessenger
+//                ->setNamespace('success')
+//                ->addMessage('Bem vindo!');
+// $this->_helper->_flashMessenger
+//                ->setNamespace('error')
+//                ->addMessage('Bem vindo!');
         /* error message */
        // $this->_helper->FlashMessenger()->setNamespace('error')->addMessage('You have no permissions');
 
@@ -26,9 +26,9 @@ class Default_ClientesController extends Zend_Controller_Action
 //        $this->_helper->FlashMessenger()
 //                ->setNamespace('success')
 //                ->addMessage('Bem vindo!');
- $this->_helper->_flashMessenger
-                ->setNamespace('error')
-                ->addMessage('Bem vindo!');
+// $this->_helper->_flashMessenger
+//                ->setNamespace('error')
+//                ->addMessage('Bem vindo!');
         
          
         $cadastroForm = new Default_Form_CadastroClienteForm();

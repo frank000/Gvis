@@ -69,7 +69,7 @@ img {border: none;}
     
       <!--NOTIFICATOR -->
         <?php $flashMessenger = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger');?>
-      
+
         <?php if ($flashMessenger->setNamespace('success')->hasMessages()): ?>
             <div id="flashSucess" class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
             <?php foreach ($flashMessenger->getMessages() as $msg): ?>
