@@ -24,16 +24,20 @@ class My_Controller_Action extends Zend_Controller_Action{
      }
             
 
-
+    public function valMsg()
+    {
+       $flash =  $this->_helper->_flashMessenger;
+      return $flash;
+    }
     public function addMessage($namespace,$message,$redirect = null)
     {
-        //Zend_Debug::dump($namespace);
-         $this->_helper->_flashsMessenger
-                ->setNamespace($namespace)
-                ->addMessage($message);
-         
-         if(!is_null($redirect)){
-             $this->_redirect($redirect);
+        
+         $this->_helper->flashMessenger->addMessage(
+                    array($namespace=>$message));
+                   
+         if($redirect){
+             // $this->_forward($redirect['action'], $redirect['controller']);
+              $this->_request->setActionName($redirect);
          }
     }
     
