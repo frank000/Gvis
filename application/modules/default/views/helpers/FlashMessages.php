@@ -18,7 +18,7 @@ class Zend_View_Helper_FlashMessages extends Zend_View_Helper_Abstract
 
         $output = '';    
         if (!empty($messages) && is_array($messages)) {
-            $output .= "<ul id='messages'>    <div id='flashSucess' class='ui-state-highlight ui-corner-all' style='margin-top: 20px; padding: 0 .7em;'>
+            $output .= "<ul id='messages'>    <div id='flashSuccess' class='ui-state-highlight ui-corner-all' style='margin-top: 20px; padding: 0 .7em;'>
         
                 <p>
                 <span  style='float: left; margin-right: .3em;'></span> ";

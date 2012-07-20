@@ -32,11 +32,12 @@ img {border: none;}
 
 	$(document).ready(function(){
          //   $("#flashSucess").delay(3000).hide();
-		$('li.headlink').hover(
-			function() { $('ul', this).css('display', 'block'); },
-			function() { $('ul', this).css('display', 'none'); });
+		$("#flashSuccess").delay(200).slideUp('1000');        
+//                $('li.headlink').hover(
+//			function() { $('ul', this).css('display', 'block'); },
+//			function() { $('ul', this).css('display', 'none'); });
                 $( "#tabs" ).tabs();        
-                $("#flashSucess,#flashError").delay(3000).slideUp('1000');        
+                
 	});
 	
 
