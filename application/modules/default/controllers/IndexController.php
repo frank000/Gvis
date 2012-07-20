@@ -21,7 +21,8 @@ class Default_IndexController extends My_Controller_Action
     public function indexAction()
     {
               
-       // $this->addMessage(parent::MSG_SUCESS, 'Bem vindo Lulinha!');
+    //  $this->addMessage(parent::MSG_SUCESS, 'Bem vindo Lulinha!');
+      //  $this->_redirect('/clientes/cadastrar');
     }
 
 

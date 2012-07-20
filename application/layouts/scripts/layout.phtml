@@ -31,6 +31,7 @@ img {border: none;}
 <script>
 
 	$(document).ready(function(){
+         //   $("#flashSucess").delay(3000).hide();
 		$('li.headlink').hover(
 			function() { $('ul', this).css('display', 'block'); },
 			function() { $('ul', this).css('display', 'none'); });
@@ -67,34 +68,10 @@ img {border: none;}
 <div id="mainwrap">	
     
     
-      <!--NOTIFICATOR -->
-        <?php $flashMessenger = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger');?>
 
-        <?php if ($flashMessenger->setNamespace('success')->hasMessages()): ?>
-            <div id="flashSucess" class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
-            <?php foreach ($flashMessenger->getMessages() as $msg): ?>
-                
-                <p>
-                <span  style="float: left; margin-right: .3em;"></span>
-<!--                <strong>Hey!</strong>-->
-                <?php echo $msg ?>
-                </p>
-            <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
-
-        <?php if ($flashMessenger->setNamespace('diverror')->hasMessages()): ?>
-            <div id="flashError" class="ui-state-error ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
-            <?php foreach ($flashMessenger->getMessages() as $msg): ?>
-                <p>
-                <span style="float: left; margin-right: .3em;"></span>
-<!--                <strong>Hey!</strong>-->
-                <?php echo $msg ?>
-                </p>
-        
-            <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
+                <?php echo $this->flashMessages(); ?>
+           
+    
         <!--NOTIFICATOR -->
         
         
