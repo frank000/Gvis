@@ -29,7 +29,7 @@ class Zend_View_Helper_Montar extends Zend_View_Helper_Abstract{
        $this->_auth = Zend_Auth::getInstance();
     
       //  $menu = "<div>Menu<br/>";
-       $menu = "<div id='mainnav' style='background: url(".$this->view->baseUrl()."/images/mainnav_bg.gif) left top repeat-y;'><br/>";
+       $menu = "<div id='mainnav' style='background: url(".$this->view->baseUrl()."/images/mainnav_bg.gif) left top repeat-y;'>";
          $menu .= "<ul id='cssdropdown'>";
         foreach ($itensMenu as $label => $item) {
            
@@ -38,7 +38,7 @@ class Zend_View_Helper_Montar extends Zend_View_Helper_Abstract{
                     if($label != 'child'){
                   $menu .= "<li class='headlink' style='background: url(".$this->view->baseUrl()."/images/mainnav_bg.gif) left top repeat-x;'>
                                 <a href='".$this->view->baseUrl().$item['uri']."'>
-                                     <span >
+                                     <span class='itemMenu'>
                                     ".$label."
                                       </span>
                                 </a>";
@@ -68,6 +68,16 @@ class Zend_View_Helper_Montar extends Zend_View_Helper_Abstract{
              
          
         }
+        
+        $menu .= "<li class='headlink' style='background: url(".$this->view->baseUrl()."/images/mainnav_bg.gif) left top repeat-x;'>
+            <a href='".$this->view->baseUrl()."/authentication/logout'>
+                    <span class='itemMenu'>
+                Sair do sistema
+                    </span>
+            </a>";
+        
+        $menu.= "</li>";//final class headlink
+        
          $menu .= "</ul ></div>";
         echo  $menu;
     }
