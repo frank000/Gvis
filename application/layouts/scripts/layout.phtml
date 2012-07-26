@@ -16,29 +16,46 @@
       <?php $this->headLink()->prependStylesheet($this->baseUrl().'/css/bootstrap.css');?>
       <?php $this->headLink()->appendStylesheet($this->baseUrl().'/css/bootstrap-responsive.css');?>
       <?php echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/docs.css');?>
-<!--[if lte IE 6]>
-<style type="text/css">
-.clearfix {height: 1%;}
-img {border: none;}
-#resol {position:absolute;} body {overflow-x: hidden;} 
-</style>
-<![endif]-->
-<!--[if gte IE 7.0]>
-<style type="text/css">
-.clearfix {display: inline-block;}
-</style>
-<![endif]-->
+
 <script>
 
 	$(document).ready(function(){
+            
+                     $('#msg1').hide(); 
+                     $('#msg0').show(); 
+                var token = 0;
+            setInterval(function(){
+                    // alert('ok');
+             //   $('p').each(function(index){
+             
+                   if( token == 0){
+                      // alert('FECHADO');
+                         $('#msg1').hide(); 
+                         $('#msg0').show(); 
+                       token = 1;
+                   }else{
+                     //   alert('ABERTO');
+                         $('#msg0').hide(); 
+                         $('#msg1').show(); 
+                        token = 0 ;
+                   }
+                   
+                  
+                    
+            //    });
+                   
+               },5000)
+       
          //   $("#flashSucess").delay(3000).hide();
-		$("#flashSuccess").delay(200).slideUp('1000');        
+		$("#flashSuccess").delay(200).slideUp('1000');     
+        
 //                $('li.headlink').hover(
 //			function() { $('ul', this).css('display', 'block'); },
 //			function() { $('ul', this).css('display', 'none'); });
                 $( "#tabs" ).tabs();        
-                
+
 	});
+        
 	
 
 </script>  
@@ -93,7 +110,8 @@ img {border: none;}
         <div class="module-box grey1">
         	<h2 class="none">Missão</h2>
         	<div class="module-content">
-                <p>Trazer ao mundo dos negócios benefícios.</p>
+                <p id="msg0">Trazer valor e benefícios ao mundo dos negócios.</p>
+                <p id="msg1">Importe-se apenas com o que realmente interessa.</p>
             </div>
         </div>
         <div class="module-box">
